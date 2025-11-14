@@ -32,70 +32,77 @@
 
     <main class="container my-4">
         <div class="input-group mb-3">
-                <span class="input-group-text" id="difficulty-label">Select Difficulty</span>
-                <select class="form-select" id="difficultySelect" aria-label="Select Difficulty" aria-describedby="difficulty-label">
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                </select>
-              </div>
+            <span class="input-group-text" id="difficulty-label">Select Difficulty</span>
+            <select class="form-select" id="difficultySelect" aria-label="Select Difficulty"
+                aria-describedby="difficulty-label">
+                <option value="easy" selected>Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
 
         <div class="row g-4">
-            
+
             <!-- Left column: two-thirds on md+ (col-md-8), full width on small screens (col-12) -->
-            
+            <h2 class="h5 card-title mb-3">Test your typing speed by typing the text shown below:</h2>
             <section class="col-12 col-md-8">
                 <div class="card h-100">
                     <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title mb-3">Typing Test</h2>
+
 
                         <div id="passage" class="mb-3 flex-grow-1 overflow-auto" style="min-height:120px;">
-                            <p class="lead mb-0 text-wrap">Loading passage...</p>
+                            <p class="lead mb-0 text-wrap">
+                                The quick brown fox jumps over the lazy dog. Practice typing this passage to build speed
+                                and accuracy.
+                                Try to keep a steady rhythm and focus on accuracy first — speed will follow.
+                            </p>
                         </div>
 
-                        <textarea id="typingInput" class="form-control mt-3" rows="3" placeholder="Start typing..."
-                            aria-label="Typing input"></textarea>
 
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <div id="timer" class="fw-bold">00:00</div>
-                            <div>
-                                <button id="startBtn" class="btn btn-primary btn-sm me-2">Start</button>
-                                <button id="resetBtn" class="btn btn-outline-secondary btn-sm">Reset</button>
-                            </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div id="passage" class="mb-3 flex-grow-1 overflow-auto" style="min-height:120px;">
+
+
+
+                    <textarea id="typingInput" class="form-control mt-3" rows="3"
+                        placeholder="Click the start button to start the test" aria-label="Typing input"></textarea>
+
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+
+
+                        <div>
+                            <button id="startBtn" class="btn btn-primary btn-sm me-2">Start</button>
+                            <button id="stopBtn" class="btn btn-outline-secondary btn-sm me-2">Stop</button>
+                            <button id="retryBtn" class="btn btn-outline-danger btn-sm">Retry</button>
                         </div>
                     </div>
                 </div>
             </section>
-            
             <!-- Right column: one-third on md+ (col-md-4), full width on small screens (col-12) -->
-            
-            <aside class="col-12 col-md-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h3 class="h6 card-title">Results</h3>
-                        <ul class="list-unstyled mb-3">
-                            <li>WPM: <span id="wpm" class="fw-bold">0</span></li>
-                            <li>Accuracy: <span id="accuracy" class="fw-bold">0%</span></li>
-                            <li>Errors: <span id="errors" class="fw-bold">0</span></li>
-                        </ul>
 
-                        <div class="mb-2">
-                            <small class="text-muted">Recent runs</small>
-                            <div id="recentRuns" class="mt-2">
-                               
-                                <!-- populated by JS -->
-                            
-                            </div>
-                        </div>
 
-                        <button id="viewStatsBtn" class="btn btn-sm btn-outline-primary w-100">View More Stats</button>
-                    </div>
-                </div>
-            </aside>
         </div>
 
-       
-        
+        <aside class="col-12 col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h6 card-title">Results</h3>
+                    <ul class="list-unstyled mb-3">
+
+                        <li>Level: <span id="level" class="fw-bold">0</span></li>
+                        <li>Time: <span id="time" class="fw-bold">00:00</span></li>
+                        <li>WPM: <span id="wpm" class="fw-bold">0</span></li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </aside>
+
 
     </main>
 
