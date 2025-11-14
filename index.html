@@ -1,24 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Font awsesome and bootstrap css -->
+    <!-- Font awsesome and bootstrap css -->
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 
 
-<!-- css stylesheet -->
+    <!-- css stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>TypeRacer</title>
 </head>
+
 <body>
+    <!-- Header: TypeRacer title and Instructions button -->
+    <header class="bg-light border-bottom sticky-top">
+        <div class="container d-flex align-items-center justify-content-between py-2">
+            <div class="d-flex align-items-center">
+                <i class="fa-solid fa-keyboard fa-lg me-2" aria-hidden="true"></i>
+                <h1 class="h5 mb-0 fw-bold">TypeRacer</h1>
+            </div>
+            <button id="instructionsBtn" type="button" class="btn btn-outline-primary btn-sm">
+                Instructions
+            </button>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <div class="input-group mb-3">
+                <span class="input-group-text" id="difficulty-label">Select Difficulty</span>
+                <select class="form-select" id="difficultySelect" aria-label="Select Difficulty" aria-describedby="difficulty-label">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
+
+        <div class="row g-4">
+            
+            <!-- Left column: two-thirds on md+ (col-md-8), full width on small screens (col-12) -->
+            
+            <section class="col-12 col-md-8">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="h5 card-title mb-3">Typing Test</h2>
+
+                        <div id="passage" class="mb-3 flex-grow-1 overflow-auto" style="min-height:120px;">
+                            <p class="lead mb-0 text-wrap">Loading passage...</p>
+                        </div>
+
+                        <textarea id="typingInput" class="form-control mt-3" rows="3" placeholder="Start typing..."
+                            aria-label="Typing input"></textarea>
+
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div id="timer" class="fw-bold">00:00</div>
+                            <div>
+                                <button id="startBtn" class="btn btn-primary btn-sm me-2">Start</button>
+                                <button id="resetBtn" class="btn btn-outline-secondary btn-sm">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Right column: one-third on md+ (col-md-4), full width on small screens (col-12) -->
+            
+            <aside class="col-12 col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h6 card-title">Results</h3>
+                        <ul class="list-unstyled mb-3">
+                            <li>WPM: <span id="wpm" class="fw-bold">0</span></li>
+                            <li>Accuracy: <span id="accuracy" class="fw-bold">0%</span></li>
+                            <li>Errors: <span id="errors" class="fw-bold">0</span></li>
+                        </ul>
+
+                        <div class="mb-2">
+                            <small class="text-muted">Recent runs</small>
+                            <div id="recentRuns" class="mt-2">
+                               
+                                <!-- populated by JS -->
+                            
+                            </div>
+                        </div>
+
+                        <button id="viewStatsBtn" class="btn btn-sm btn-outline-primary w-100">View More Stats</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+       
+        
+
+    </main>
+
     <!-- Font awesome-->
-  <script src="https://kit.fontawesome.com/39393c5fc3.js" crossorigin="anonymous"></script>   
- <!-- Bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-   <!-- js file-->  
-  <script src="assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/39393c5fc3.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- js file-->
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
