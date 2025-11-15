@@ -17,94 +17,68 @@
 </head>
 
 <body>
-    <!-- Header: TypeRacer title and Instructions button -->
-    <header class="bg-light border-bottom sticky-top">
-        <div class="container d-flex align-items-center justify-content-between py-2">
-            <div class="d-flex align-items-center">
-                <i class="fa-solid fa-keyboard fa-lg me-2" aria-hidden="true"></i>
-                <h1 class="h5 mb-0 fw-bold">TypeRacer</h1>
+   
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center my-4">
+                    <h1>TypeRacer</h1>
+                    <button class="btn btn-light mt-3" id="instructions-btn">
+                        <i class="fas fa-info-circle"></i> Instructions
+                    </button>
+                </div>
             </div>
-            <button id="instructionsBtn" type="button" class="btn btn-outline-primary btn-sm">
-                Instructions
-            </button>
         </div>
     </header>
 
-    <main class="container my-4">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="difficulty-label">Select Difficulty</span>
-            <select class="form-select" id="difficultySelect" aria-label="Select Difficulty"
-                aria-describedby="difficulty-label">
-                <option value="easy" selected>Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-        </div>
-
-        <div class="row g-4">
-
-            <!-- Left column: two-thirds on md+ (col-md-8), full width on small screens (col-12) -->
-            <h2 class="h5 card-title mb-3">Test your typing speed by typing the text shown below:</h2>
-            <section class="col-12 col-md-8">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-
-
-                        <div id="passage" class="mb-3 flex-grow-1 overflow-auto" style="min-height:120px;">
-                            <p class="lead mb-0 text-wrap">
-                                The quick brown fox jumps over the lazy dog. Practice typing this passage to build speed
-                                and accuracy.
-                                Try to keep a steady rhythm and focus on accuracy first — speed will follow.
-                            </p>
+    <main>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="difficulty">Select Difficulty</label>
+                        <select class="form-select" id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="test-area">
+                        <p class="lead">Test your typing speed by typing the text shown below:</p>
+                        <div class="mb-3 p-3 border" id="sample-text">
+                            <!-- sample text is inserted here using JS -->
                         </div>
-
-
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label visually-hidden" for="user-input">Type Here</label>
+                        <textarea class="form-control" id="user-input" rows="6"
+                            placeholder="Click the start button to begin the test"></textarea>
+                    </div>
+                    <div class="mb-3 text-center">
+                        <button class="btn btn-lg btn-outline-orange" id="start-btn">Start</button>
+                        <button class="btn btn-lg btn-outline-orange" id="stop-btn">Stop</button>
+                        <button class="btn btn-lg btn-outline-orange" id="retry-btn">Retry</button>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <div id="passage" class="mb-3 flex-grow-1 overflow-auto" style="min-height:120px;">
-
-
-
-                    <textarea id="typingInput" class="form-control mt-3" rows="3"
-                        placeholder="Click the start button to start the test" aria-label="Typing input"></textarea>
-
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-
-
+                <div class="col-md-4">
+                    <div id="results-area" class="text-center">
+                        <h2>Results</h2>
                         <div>
-                            <button id="startBtn" class="btn btn-primary btn-sm me-2">Start</button>
-                            <button id="stopBtn" class="btn btn-outline-secondary btn-sm me-2">Stop</button>
-                            <button id="retryBtn" class="btn btn-outline-danger btn-sm">Retry</button>
+                            <p>Level: <span id="level">Easy</span></p>
+
+                        </div>
+                        <div>
+                            <p>Time: <span id="time">0</span>s</p>
+                        </div>
+                        <div>
+                            <p>WPM: <span id="wpm">0</span></p>
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- Right column: one-third on md+ (col-md-4), full width on small screens (col-12) -->
-
-
-        </div>
-
-        <aside class="col-12 col-md-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h3 class="h6 card-title">Results</h3>
-                    <ul class="list-unstyled mb-3">
-
-                        <li>Level: <span id="level" class="fw-bold">0</span></li>
-                        <li>Time: <span id="time" class="fw-bold">00:00</span></li>
-                        <li>WPM: <span id="wpm" class="fw-bold">0</span></li>
-                    </ul>
-
                 </div>
             </div>
-
-        </aside>
-
-
+        </div>
     </main>
+
 
     <!-- Font awesome-->
     <script src="https://kit.fontawesome.com/39393c5fc3.js" crossorigin="anonymous"></script>
